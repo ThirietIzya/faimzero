@@ -1,0 +1,163 @@
+---
+const fields = [
+	{ id: 'nom', label: 'Nom et prénom', type: 'text', placeholder: 'Votre nom', autocomplete: 'name' },
+	{ id: 'fonction', label: 'Fonction', type: 'text', placeholder: "Ex. ministre de l'Agriculture", autocomplete: 'organization-title' },
+	{ id: 'pays', label: 'Pays', type: 'text', placeholder: 'Votre pays', autocomplete: 'country-name' },
+	{ id: 'email', label: 'Adresse e-mail', type: 'email', placeholder: 'nom@gouvernement.org', autocomplete: 'email' },
+];
+---
+
+<section id="contact" class="contact">
+	<div class="glow contact__glow-1" aria-hidden="true"></div>
+	<div class="glow contact__glow-2" aria-hidden="true"></div>
+
+	<div class="contact__inner container">
+		<div class="contact__text">
+			<p class="label">[ 04 ] Pour les dirigeants</p>
+			<h2 class="title">Votre pays veut sa machine ?</h2>
+			<p class="lead">Laissez-nous vos coordonnées : l'équipe vous recontacte pour organiser une présentation.</p>
+			<p class="status contact__status"><span class="status__dot" aria-hidden="true"></span>Canal ouvert</p>
+		</div>
+
+		<form class="card contact__form" action="#" method="post">
+			<div class="contact__fields">
+				{fields.map((f) => (
+					<div class="field">
+						<label for={f.id}>{f.label}</label>
+						<input id={f.id} name={f.id} type={f.type} placeholder={f.placeholder} autocomplete={f.autocomplete} required />
+					</div>
+				))}
+			</div>
+			<div class="field">
+				<label for="message">Message</label>
+				<textarea id="message" name="message" rows="3" placeholder="Parlez-nous de votre pays et de vos besoins"></textarea>
+			</div>
+			<button type="submit" class="btn btn--primary contact__submit">Envoyer ma demande</button>
+		</form>
+	</div>
+</section>
+
+<style>
+	.contact {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.contact__glow-1 {
+		left: -160px;
+		bottom: -280px;
+		width: 900px;
+		height: 700px;
+		background: radial-gradient(closest-side, rgba(46, 91, 255, 0.45), transparent 72%);
+	}
+
+	.contact__glow-2 {
+		right: -120px;
+		top: -200px;
+		width: 600px;
+		height: 500px;
+		background: radial-gradient(closest-side, rgba(61, 224, 255, 0.16), transparent 70%);
+	}
+
+	.contact__inner {
+		position: relative;
+		max-width: 1180px;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 56px;
+		padding-top: 120px;
+		padding-bottom: 120px;
+	}
+
+	.contact__text {
+		flex: 1 1 400px;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 22px;
+	}
+
+	.contact__text .lead {
+		max-width: 440px;
+	}
+
+	.contact__status {
+		align-self: flex-start;
+		margin-top: 6px;
+		color: var(--text);
+		border: 1px solid rgba(61, 224, 255, 0.5);
+	}
+
+	.contact__form {
+		flex: 1 1 520px;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		padding: 40px;
+		border-radius: 32px;
+		border-color: rgba(127, 162, 255, 0.25);
+	}
+
+	.contact__fields {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 20px;
+	}
+
+	.field {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.field label {
+		font-family: var(--font-mono);
+		font-size: 11px;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--label);
+	}
+
+	.field input,
+	.field textarea {
+		min-height: 48px;
+		padding: 0 2px;
+		border: 0;
+		border-bottom: 1px solid var(--line-strong);
+		background: transparent;
+		color: var(--text);
+		font-size: 16px;
+		transition: border-color 0.2s ease;
+	}
+
+	.field textarea {
+		padding-block: 10px;
+		resize: vertical;
+	}
+
+	.field input::placeholder,
+	.field textarea::placeholder {
+		color: #7d88ad;
+	}
+
+	.field input:focus,
+	.field textarea:focus {
+		outline: none;
+		border-bottom-color: var(--cyan);
+	}
+
+	.contact__submit {
+		margin-top: 8px;
+	}
+
+	@media (max-width: 640px) {
+		.contact__fields {
+			grid-template-columns: 1fr;
+		}
+		.contact__form {
+			padding: 28px;
+		}
+	}
+</style>

@@ -1,0 +1,201 @@
+---
+// Section « Le projet » : trois cartes Fabriquer / Dupliquer / Installer
+---
+
+<section id="projet" class="projet">
+	<div class="glow projet__glow" aria-hidden="true"></div>
+
+	<div class="projet__inner container">
+		<div class="projet__head">
+			<div class="projet__head-title">
+				<p class="label">[ 01 ] Le projet</p>
+				<h2 class="title">Une invention,<br />reproduite partout</h2>
+			</div>
+			<p class="lead projet__intro">
+				Plutôt que d'envoyer de la nourriture d'un continent à l'autre, on installe la production sur place.
+				Trois idées simples font tourner le projet.
+			</p>
+		</div>
+
+		<div class="projet__cards">
+			<article class="card projet__card">
+				<div class="projet__card-head">
+					<h3>Fabriquer</h3>
+					<span>/01</span>
+				</div>
+				<div class="projet__visual">
+					<svg viewBox="0 0 320 200" aria-hidden="true">
+						<defs>
+							<linearGradient id="pjA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FA2FF"></stop><stop offset="1" stop-color="#2E5BFF"></stop></linearGradient>
+							<filter id="pjBlur"><feGaussianBlur stdDeviation="12"></feGaussianBlur></filter>
+						</defs>
+						<ellipse cx="160" cy="120" rx="110" ry="40" fill="#2E5BFF" opacity="0.5" filter="url(#pjBlur)"></ellipse>
+						<ellipse cx="160" cy="150" rx="90" ry="22" fill="#0E1A4D" stroke="#2E5BFF" stroke-width="1.5"></ellipse>
+						<ellipse cx="160" cy="124" rx="90" ry="22" fill="#14246B" stroke="#4D7CFF" stroke-width="1.5"></ellipse>
+						<ellipse cx="160" cy="98" rx="90" ry="22" fill="#1B3194" stroke="#7FA2FF" stroke-width="1.5"></ellipse>
+						<ellipse cx="160" cy="72" rx="90" ry="22" fill="url(#pjA)" stroke="#BFD0FF" stroke-width="1.5"></ellipse>
+					</svg>
+				</div>
+				<p>La machine assemble des burgers complets, couche après couche, sans interruption.</p>
+			</article>
+
+			<article class="card projet__card">
+				<div class="projet__card-head">
+					<h3>Dupliquer</h3>
+					<span>/02</span>
+				</div>
+				<div class="projet__visual">
+					<svg viewBox="0 0 320 200" aria-hidden="true">
+						<defs><filter id="pjBlur2"><feGaussianBlur stdDeviation="10"></feGaussianBlur></filter></defs>
+						<g fill="none" stroke="#2E5BFF" stroke-width="1.5" opacity="0.6">
+							<rect x="70" y="30" width="44" height="44" rx="10"></rect>
+							<rect x="138" y="30" width="44" height="44" rx="10"></rect>
+							<rect x="206" y="30" width="44" height="44" rx="10"></rect>
+							<rect x="70" y="78" width="44" height="44" rx="10"></rect>
+							<rect x="206" y="78" width="44" height="44" rx="10"></rect>
+							<rect x="70" y="126" width="44" height="44" rx="10"></rect>
+							<rect x="138" y="126" width="44" height="44" rx="10"></rect>
+							<rect x="206" y="126" width="44" height="44" rx="10"></rect>
+						</g>
+						<rect x="132" y="72" width="56" height="56" rx="12" fill="#2E5BFF" filter="url(#pjBlur2)"></rect>
+						<rect x="138" y="78" width="44" height="44" rx="10" fill="#2E5BFF" stroke="#BFD0FF" stroke-width="1.5"></rect>
+						<path d="M160 90 V110 M150 100 H170" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"></path>
+					</svg>
+				</div>
+				<p>Chaque machine est reproduite à l'identique, pour en installer autant qu'il le faut.</p>
+			</article>
+
+			<article class="card projet__card">
+				<div class="projet__card-head">
+					<h3>Installer</h3>
+					<span>/03</span>
+				</div>
+				<div class="projet__visual">
+					<svg viewBox="0 0 320 200" aria-hidden="true">
+						<defs><filter id="pjBlur3"><feGaussianBlur stdDeviation="14"></feGaussianBlur></filter></defs>
+						<circle cx="160" cy="100" r="76" fill="#2E5BFF" opacity="0.35" filter="url(#pjBlur3)"></circle>
+						<g fill="none" stroke="#4D7CFF" stroke-width="1.2">
+							<circle cx="160" cy="100" r="74"></circle>
+							<ellipse cx="160" cy="100" rx="30" ry="74"></ellipse>
+							<ellipse cx="160" cy="100" rx="58" ry="74"></ellipse>
+							<ellipse cx="160" cy="100" rx="74" ry="26"></ellipse>
+							<path d="M86 100 H234"></path>
+						</g>
+						<path d="M118 66 L196 82 L176 140 L128 128 Z" fill="none" stroke="#3DE0FF" stroke-width="1.2" opacity="0.8"></path>
+						<g fill="#3DE0FF">
+							<circle cx="118" cy="66" r="4.5"></circle>
+							<circle cx="196" cy="82" r="4.5"></circle>
+							<circle cx="176" cy="140" r="4.5"></circle>
+							<circle cx="128" cy="128" r="4.5"></circle>
+						</g>
+					</svg>
+				</div>
+				<p>Les machines sont installées dans plusieurs pays, au plus près des habitants.</p>
+			</article>
+		</div>
+	</div>
+</section>
+
+<style>
+	.projet {
+		position: relative;
+	}
+
+	.projet__glow {
+		left: 50%;
+		top: 40px;
+		width: 900px;
+		height: 600px;
+		transform: translateX(-50%);
+		background: radial-gradient(closest-side, rgba(46, 91, 255, 0.22), transparent 70%);
+	}
+
+	.projet__inner {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: 56px;
+		padding-top: 72px;
+		padding-bottom: 120px;
+	}
+
+	.projet__head {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 32px;
+	}
+
+	.projet__head-title {
+		flex: 1 1 560px;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+	}
+
+	.projet__intro {
+		flex: 1 1 360px;
+		max-width: 440px;
+	}
+
+	.projet__cards {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+
+	.projet__card {
+		flex: 1 1 320px;
+		min-width: 0;
+		padding: 28px;
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+		transition: transform 0.3s ease, border-color 0.3s ease;
+	}
+
+	.projet__card:hover {
+		transform: translateY(-6px);
+		border-color: var(--line-strong);
+	}
+
+	.projet__card-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+	}
+
+	.projet__card h3 {
+		margin: 0;
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: 24px;
+	}
+
+	.projet__card-head span {
+		font-family: var(--font-mono);
+		font-size: 12px;
+		color: var(--label);
+	}
+
+	.projet__visual {
+		border-radius: 18px;
+		overflow: hidden;
+		background: #070b24;
+		border: 1px solid rgba(127, 162, 255, 0.15);
+	}
+
+	.projet__visual svg {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	.projet__card p {
+		margin: 0;
+		font-size: 16px;
+		color: var(--muted);
+	}
+</style>

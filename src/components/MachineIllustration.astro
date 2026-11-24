@@ -1,0 +1,192 @@
+---
+// Illustration SVG de la machine FZ-01 (hologramme + étiquettes HUD)
+---
+
+<svg class="machine" viewBox="0 0 640 600" role="img" aria-label="Illustration de la machine FZ-01 : une colonne sombre aux contours bleu néon, une fenêtre ronde où un burger apparaît en hologramme, un panneau de contrôle lumineux et des étiquettes techniques autour.">
+	<defs>
+		<linearGradient id="fzBody" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#1A2766"></stop>
+			<stop offset="0.55" stop-color="#0A1033"></stop>
+			<stop offset="1" stop-color="#05081C"></stop>
+		</linearGradient>
+		<linearGradient id="fzEdge" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#3DE0FF"></stop>
+			<stop offset="0.5" stop-color="#2E5BFF"></stop>
+			<stop offset="1" stop-color="#8B6CFF"></stop>
+		</linearGradient>
+		<linearGradient id="fzHolo" x1="0" y1="0" x2="1" y2="0">
+			<stop offset="0" stop-color="#3DE0FF"></stop>
+			<stop offset="1" stop-color="#A88BFF"></stop>
+		</linearGradient>
+		<radialGradient id="fzWin" cx="0.5" cy="0.5" r="0.5">
+			<stop offset="0" stop-color="#14245F"></stop>
+			<stop offset="1" stop-color="#050714"></stop>
+		</radialGradient>
+		<filter id="fzBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"></feGaussianBlur></filter>
+		<filter id="fzSoft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"></feGaussianBlur></filter>
+		<clipPath id="fzWinClip"><circle cx="320" cy="262" r="98"></circle></clipPath>
+	</defs>
+
+	<!-- Socle lumineux -->
+	<ellipse cx="320" cy="528" rx="230" ry="34" fill="#2E5BFF" opacity="0.55" filter="url(#fzBlur)"></ellipse>
+	<ellipse cx="320" cy="528" rx="210" ry="28" fill="none" stroke="url(#fzEdge)" stroke-width="2"></ellipse>
+	<ellipse class="machine__ring" cx="320" cy="528" rx="160" ry="20" fill="none" stroke="#2E5BFF" stroke-width="1.5" opacity="0.6" stroke-dasharray="4 8"></ellipse>
+
+	<g class="machine__body">
+		<!-- Halo du corps -->
+		<rect x="190" y="110" width="260" height="400" rx="44" fill="none" stroke="#2E5BFF" stroke-width="8" opacity="0.7" filter="url(#fzBlur)"></rect>
+
+		<!-- Trémie -->
+		<rect x="236" y="70" width="168" height="52" rx="16" fill="#0B1235" stroke="url(#fzEdge)" stroke-width="2"></rect>
+		<path d="M262 90 H378 M262 102 H378" stroke="#3DE0FF" stroke-width="2" stroke-linecap="round" opacity="0.7"></path>
+
+		<!-- Corps -->
+		<rect x="190" y="110" width="260" height="400" rx="44" fill="url(#fzBody)" stroke="url(#fzEdge)" stroke-width="2.5"></rect>
+		<path d="M214 140 C214 128 222 122 234 122 H300" stroke="#FFFFFF" stroke-width="2" opacity="0.35" fill="none" stroke-linecap="round"></path>
+
+		<!-- Fenêtre -->
+		<circle cx="320" cy="262" r="100" fill="url(#fzWin)" stroke="url(#fzEdge)" stroke-width="3"></circle>
+		<circle cx="320" cy="262" r="84" fill="none" stroke="#2E5BFF" stroke-width="1.5" opacity="0.5" stroke-dasharray="3 7"></circle>
+
+		<!-- Burger en hologramme -->
+		<g class="machine__burger" fill="none" stroke="url(#fzHolo)" stroke-width="2" stroke-linejoin="round">
+			<path d="M258 250 C258 196 382 196 382 250 Z"></path>
+			<path d="M280 232 C300 210 340 210 360 232" opacity="0.5"></path>
+			<ellipse cx="320" cy="258" rx="66" ry="7"></ellipse>
+			<path d="M256 268 Q268 260 280 268 T304 268 T328 268 T352 268 T376 268 T386 266"></path>
+			<rect x="258" y="274" width="124" height="18" rx="9"></rect>
+			<path d="M260 298 H380 C380 316 364 320 350 320 H290 C276 320 260 316 260 298 Z"></path>
+		</g>
+		<g fill="#3DE0FF">
+			<circle cx="296" cy="226" r="2"></circle>
+			<circle cx="320" cy="218" r="2"></circle>
+			<circle cx="344" cy="228" r="2"></circle>
+		</g>
+
+		<!-- Ligne de scan animée -->
+		<g clip-path="url(#fzWinClip)">
+			<g class="machine__scan">
+				<line x1="220" y1="262" x2="420" y2="262" stroke="#3DE0FF" stroke-width="6" opacity="0.6" filter="url(#fzSoft)"></line>
+				<line x1="220" y1="262" x2="420" y2="262" stroke="#E6FBFF" stroke-width="1.5"></line>
+			</g>
+		</g>
+
+		<!-- Coins de visée -->
+		<path d="M206 170 V150 H226 M434 170 V150 H414 M206 354 V374 H226 M434 354 V374 H414" fill="none" stroke="#7FA2FF" stroke-width="2"></path>
+
+		<!-- Panneau de contrôle -->
+		<rect x="226" y="398" width="188" height="64" rx="14" fill="#070B24" stroke="rgba(127,162,255,0.35)" stroke-width="1.5"></rect>
+		<circle cx="250" cy="430" r="7" fill="#3DE0FF"></circle>
+		<circle cx="250" cy="430" r="12" fill="#3DE0FF" opacity="0.35" filter="url(#fzSoft)"></circle>
+		<g class="machine__bars" fill="#2E5BFF">
+			<rect x="276" y="432" width="8" height="16" rx="2"></rect>
+			<rect x="290" y="424" width="8" height="24" rx="2"></rect>
+			<rect x="304" y="416" width="8" height="32" rx="2"></rect>
+			<rect x="318" y="426" width="8" height="22" rx="2"></rect>
+			<rect x="332" y="420" width="8" height="28" rx="2"></rect>
+		</g>
+		<text x="398" y="436" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="13" fill="#9FB8FF">FZ-01</text>
+		<text x="398" y="452" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="10" fill="#6E7FB0">ON</text>
+
+		<!-- Sortie -->
+		<rect x="450" y="420" width="96" height="14" rx="7" fill="#2E5BFF"></rect>
+		<rect x="450" y="420" width="96" height="14" rx="7" fill="#2E5BFF" opacity="0.8" filter="url(#fzSoft)"></rect>
+		<path d="M480 414 C480 396 520 396 520 414 Z" fill="none" stroke="#3DE0FF" stroke-width="2"></path>
+	</g>
+
+	<!-- Étiquettes HUD -->
+	<g class="machine__hud" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="1.5">
+		<polyline points="404,96 470,52 620,52" fill="none" stroke="#7FA2FF" stroke-width="1"></polyline>
+		<circle cx="404" cy="96" r="3.5" fill="#3DE0FF"></circle>
+		<text x="478" y="44" fill="#9FB8FF">INTAKE // INGRÉDIENTS</text>
+
+		<polyline points="412,214 480,180 620,180" fill="none" stroke="#7FA2FF" stroke-width="1"></polyline>
+		<circle cx="412" cy="214" r="3.5" fill="#3DE0FF"></circle>
+		<text x="488" y="172" fill="#9FB8FF">SCAN_BURGER // OK</text>
+
+		<polyline points="226,430 160,470 16,470" fill="none" stroke="#7FA2FF" stroke-width="1"></polyline>
+		<circle cx="226" cy="430" r="3.5" fill="#3DE0FF"></circle>
+		<text x="16" y="462" fill="#9FB8FF">PRODUCTION // CONTINUE</text>
+
+		<polyline points="222,262 150,262 120,232 16,232" fill="none" stroke="#7FA2FF" stroke-width="1"></polyline>
+		<circle cx="222" cy="262" r="3.5" fill="#3DE0FF"></circle>
+		<text x="16" y="224" fill="#9FB8FF">ASSEMBLAGE // AUTO</text>
+	</g>
+
+	<!-- Particules -->
+	<g fill="#7FA2FF">
+		<circle cx="560" cy="300" r="2"></circle>
+		<circle cx="96" cy="120" r="1.6"></circle>
+		<circle cx="600" cy="380" r="1.4"></circle>
+		<circle cx="60" cy="360" r="2"></circle>
+		<circle cx="520" cy="110" r="1.4"></circle>
+	</g>
+</svg>
+
+<style>
+	.machine {
+		display: block;
+		width: 100%;
+		height: auto;
+		overflow: visible;
+	}
+
+	.machine__body {
+		animation: float 6s ease-in-out infinite;
+	}
+
+	.machine__scan {
+		animation: scan 3.2s ease-in-out infinite;
+	}
+
+	.machine__burger {
+		animation: flicker 4s ease-in-out infinite;
+	}
+
+	.machine__ring {
+		transform-origin: 320px 528px;
+		animation: spin 18s linear infinite;
+	}
+
+	.machine__bars rect {
+		transform-box: fill-box;
+		transform-origin: bottom;
+		animation: eq 1.4s ease-in-out infinite;
+	}
+	.machine__bars rect:nth-child(2) { animation-delay: 0.2s; }
+	.machine__bars rect:nth-child(3) { animation-delay: 0.4s; }
+	.machine__bars rect:nth-child(4) { animation-delay: 0.6s; }
+	.machine__bars rect:nth-child(5) { animation-delay: 0.8s; }
+
+	@keyframes float {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(-10px); }
+	}
+
+	@keyframes scan {
+		0%, 100% { transform: translateY(-70px); }
+		50% { transform: translateY(60px); }
+	}
+
+	@keyframes flicker {
+		0%, 100% { opacity: 1; }
+		47% { opacity: 1; }
+		50% { opacity: 0.55; }
+		53% { opacity: 1; }
+	}
+
+	@keyframes spin {
+		to { stroke-dashoffset: -120; }
+	}
+
+	@keyframes eq {
+		0%, 100% { transform: scaleY(1); }
+		50% { transform: scaleY(0.5); }
+	}
+
+	@media (max-width: 640px) {
+		.machine__hud {
+			display: none;
+		}
+	}
+</style>

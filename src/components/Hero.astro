@@ -1,0 +1,165 @@
+---
+import MachineIllustration from './MachineIllustration.astro';
+
+const values = [
+	{ num: '01', text: 'Une production', strong: 'continue' },
+	{ num: '02', text: 'Une machine', strong: 'dupliquée' },
+	{ num: '03', text: 'Installée', strong: 'pays par pays' },
+	{ num: '04', text: 'Avec', strong: "l'accord des dirigeants" },
+];
+---
+
+<section id="accueil" class="hero">
+	<div class="glow hero__glow-1" aria-hidden="true"></div>
+	<div class="glow hero__glow-2" aria-hidden="true"></div>
+	<div class="hero__grid grid-bg" aria-hidden="true"></div>
+
+	<div class="hero__inner container">
+		<div class="hero__text">
+			<p class="status hero__badge">
+				<span class="status__dot" aria-hidden="true"></span>Projet FZ-01 // en ligne
+			</p>
+			<h1 class="hero__title">
+				La machine qui <span class="gradient-text">nourrit</span> le monde
+			</h1>
+			<p class="hero__lead">
+				Une invention qui fabrique des burgers en continu, dupliquée et installée dans plusieurs pays
+				avec l'accord de leurs dirigeants. Objectif : éradiquer la faim dans le monde.
+			</p>
+			<div class="hero__actions">
+				<a href="#projet" class="btn btn--primary">
+					Découvrir le projet
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"></path></svg>
+				</a>
+				<a href="#machine" class="btn btn--ghost">Voir la machine</a>
+			</div>
+		</div>
+
+		<div class="hero__visual">
+			<MachineIllustration />
+		</div>
+	</div>
+
+	<div class="container hero__values-wrap">
+		<ul class="hero__values">
+			{values.map((v) => (
+				<li>{v.num} — {v.text} <strong>{v.strong}</strong></li>
+			))}
+		</ul>
+	</div>
+</section>
+
+<style>
+	.hero {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.hero__glow-1 {
+		left: 50%;
+		top: -220px;
+		width: 1100px;
+		height: 900px;
+		transform: translateX(-30%);
+		background: radial-gradient(closest-side, rgba(46, 91, 255, 0.55), rgba(46, 91, 255, 0.12) 55%, transparent 75%);
+	}
+
+	.hero__glow-2 {
+		left: -200px;
+		top: 380px;
+		width: 600px;
+		height: 600px;
+		background: radial-gradient(closest-side, rgba(61, 224, 255, 0.18), transparent 70%);
+	}
+
+	.hero__grid {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		mask-image: linear-gradient(180deg, #000 60%, transparent);
+		-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
+	}
+
+	.hero__inner {
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 40px;
+		padding-top: 72px;
+		padding-bottom: 64px;
+	}
+
+	.hero__text {
+		flex: 1 1 520px;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 28px;
+	}
+
+	.hero__badge {
+		align-self: flex-start;
+		color: var(--label);
+		border: 1px solid rgba(127, 162, 255, 0.3);
+		background: rgba(46, 91, 255, 0.08);
+	}
+
+	.hero__title {
+		margin: 0;
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: clamp(40px, 5.6vw, 72px);
+		line-height: 1.02;
+		letter-spacing: -0.03em;
+		text-transform: uppercase;
+	}
+
+	.hero__lead {
+		margin: 0;
+		max-width: 520px;
+		font-size: 19px;
+		color: var(--muted);
+	}
+
+	.hero__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 14px;
+	}
+
+	.hero__visual {
+		flex: 1 1 560px;
+		min-width: 0;
+	}
+
+	.hero__values-wrap {
+		position: relative;
+		padding-bottom: 96px;
+	}
+
+	.hero__values {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--line);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.hero__values li {
+		flex: 1 1 240px;
+		padding: 22px 0;
+		font-family: var(--font-mono);
+		font-size: 12px;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--muted);
+	}
+
+	.hero__values strong {
+		font-weight: 500;
+		color: var(--text);
+	}
+</style>

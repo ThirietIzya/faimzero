@@ -1,0 +1,237 @@
+---
+const specs = [
+	{ label: 'Production', value: '[X] / jour' },
+	{ label: 'Dimensions', value: '[À DÉFINIR]' },
+	{ label: 'Énergie', value: '[À DÉFINIR]' },
+];
+
+const steps = [
+	{ num: '01', title: 'Remplissage', text: 'Les ingrédients sont versés par le haut.' },
+	{ num: '02', title: 'Cuisson', text: 'Viande et pain cuisent automatiquement.' },
+	{ num: '03', title: 'Assemblage', text: "Pain, salade, fromage et steak s'empilent.", active: true },
+	{ num: '04', title: 'Distribution', text: 'Le burger sort, prêt à être distribué.' },
+];
+---
+
+<section id="machine" class="machine-section">
+	<div class="machine-section__inner container">
+		<div class="panel">
+			<div class="panel__grid" aria-hidden="true"></div>
+
+			<div class="panel__top">
+				<span class="label">SYS_STATUS</span>
+				<span class="status panel__status"><span class="status__dot" aria-hidden="true"></span>En marche</span>
+			</div>
+
+			<div class="panel__text">
+				<p class="label">[ 02 ] La machine</p>
+				<h2 class="title">Ingrédients in.<br />Burger out.</h2>
+				<p class="panel__lead">
+					Pas besoin de cuisine ni de personnel spécialisé : la machine fait tout le travail,
+					de la cuisson à la distribution.
+				</p>
+			</div>
+
+			<dl class="specs">
+				{specs.map((s) => (
+					<div class="spec">
+						<dt>{s.label}</dt>
+						<dd>{s.value}</dd>
+					</div>
+				))}
+			</dl>
+		</div>
+
+		<ol class="steps">
+			{steps.map((step) => (
+				<li class:list={['step', { 'step--active': step.active }]}>
+					<span class="step__num">{step.num}</span>
+					<div class="step__body">
+						<h3>{step.title}</h3>
+						<p>{step.text}</p>
+					</div>
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+				</li>
+			))}
+		</ol>
+	</div>
+</section>
+
+<style>
+	.machine-section {
+		border-top: 1px solid rgba(127, 162, 255, 0.18);
+	}
+
+	.machine-section__inner {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: stretch;
+		gap: 48px;
+		padding-top: 120px;
+		padding-bottom: 120px;
+	}
+
+	.panel {
+		flex: 1 1 500px;
+		min-width: 0;
+		position: relative;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 40px;
+		padding: 40px;
+		border-radius: 32px;
+		border: 1px solid var(--line);
+		background: radial-gradient(120% 90% at 30% 0%, rgba(46, 91, 255, 0.45), rgba(10, 16, 51, 0.9) 55%, var(--bg));
+	}
+
+	.panel__grid {
+		position: absolute;
+		inset: 0;
+		background-image:
+			linear-gradient(rgba(127, 162, 255, 0.08) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(127, 162, 255, 0.08) 1px, transparent 1px);
+		background-size: 32px 32px;
+	}
+
+	.panel > *:not(.panel__grid) {
+		position: relative;
+	}
+
+	.panel__top {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.panel__status {
+		color: var(--text);
+		border: 1px solid rgba(61, 224, 255, 0.5);
+		padding: 4px 12px;
+	}
+
+	.panel__text {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.panel__lead {
+		margin: 0;
+		max-width: 460px;
+		color: var(--soft);
+	}
+
+	.specs {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin: 0;
+	}
+
+	.spec {
+		flex: 1 1 150px;
+		padding: 14px 16px;
+		border-radius: 16px;
+		background: rgba(5, 7, 20, 0.55);
+		border: 1px solid var(--line);
+	}
+
+	.spec dt {
+		font-family: var(--font-mono);
+		font-size: 11px;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--label);
+	}
+
+	.spec dd {
+		margin: 4px 0 0;
+		font-family: var(--font-display);
+		font-size: 16px;
+	}
+
+	.steps {
+		flex: 1 1 480px;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 12px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.step {
+		display: flex;
+		align-items: center;
+		gap: 22px;
+		padding: 22px 26px;
+		border-radius: var(--radius-md);
+		border: 1px solid var(--line);
+		background: var(--surface);
+		color: var(--blue-light);
+		transition: border-color 0.2s ease, background 0.2s ease;
+	}
+
+	.step:hover {
+		border-color: var(--line-strong);
+		background: rgba(46, 91, 255, 0.08);
+	}
+
+	.step__num {
+		flex: 0 0 auto;
+		padding: 4px 12px;
+		border-radius: 999px;
+		border: 1px solid rgba(127, 162, 255, 0.35);
+		font-family: var(--font-mono);
+		font-size: 13px;
+		color: var(--label);
+	}
+
+	.step__body {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+
+	.step h3 {
+		margin: 0;
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: 20px;
+		color: var(--text);
+	}
+
+	.step p {
+		margin: 2px 0 0;
+		font-size: 15px;
+		color: var(--muted);
+	}
+
+	.step--active {
+		color: var(--text);
+		border-color: rgba(127, 162, 255, 0.6);
+		background: linear-gradient(90deg, rgba(46, 91, 255, 0.35), rgba(46, 91, 255, 0.08));
+		box-shadow: 0 0 40px rgba(46, 91, 255, 0.25);
+	}
+
+	.step--active .step__num {
+		border-color: transparent;
+		background: var(--blue);
+		color: #fff;
+	}
+
+	.step--active p {
+		color: var(--soft);
+	}
+
+	@media (max-width: 640px) {
+		.panel {
+			padding: 28px;
+		}
+	}
+</style>
